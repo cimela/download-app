@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta property="al:ios:url" content="my-app://path" />
+    <meta property="al:android:url" content="my-app://path">
+    <meta property="al:ios:app_store_id" content="apple-app-id" />
+    <meta property="al:android:package" content="google-app-package">
+    <meta property="al:android:app_name" content="My App">
+    <meta property="al:ios:app_name" content="My App" />
+    <meta property="og:title" content="example page title" />
+    <meta property="og:type" content="website" />
+	
+    <title>Google Map App</title>
+</head>
+<body>
+    <script>
+        if(navigator.userAgent.match('Android')) {
+            window.onload = function() {
+                <!-- Deep link URL for existing users with app already installed on their device -->
+                window.location = 'intent:#Intent;scheme=intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;S.browser_fallback_url=http%3A%2F%2Fzxing.org;end';
+            }
+        } else if(navigator.userAgent.match('iPhone|iPod|iPad')) {
+            window.onload = function() {
+                <!-- Deep link URL for existing users with app already installed on their device -->
+                window.location = 'comgooglemaps://?center=35.7499108,139.802719&zoom=17&views=traffic';
+                <!-- Download URL (TUNE link) for new users to download the app -->
+                setTimeout("window.location = 'https://itunes.apple.com/us/app/google-maps-transit-food/id585027354?mt=8';", 500);
+            }
+        } else {
+            alert("Device is not supported");
+            var win = window.open("","_self"); /* url = “” or “about:blank”; target=”_self” */
+            win.close();
+        }
+    </script>
+</body>
+</html>
