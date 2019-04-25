@@ -15,6 +15,21 @@
 </head>
 <body>
     <script>
+		/*intent:
+		HOST/URI-path // Optional host 
+		#Intent; 
+		  package=[string]; 
+		  action=[string]; 
+		  category=[string]; 
+		  component=[string]; 
+		  scheme=[string]; 
+		end; */
+		// <intent-filter>
+		//     <data android:scheme="startci" />
+		//     <action android:name="android.intent.action.VIEW" />
+		//     <category android:name="android.intent.category.DEFAULT" />
+		//     <category android:name="android.intent.category.BROWSABLE" />
+		// </intent-filter>
         if(navigator.userAgent.match('Android')) {
             window.onload = function() {
                 <!-- Deep link URL for existing users with app already installed on their device -->
